@@ -1,0 +1,28 @@
+
+Box:
+1-Me
+	started with python wanted to learn programming
+	moved on to actionscript 3 to make flash games
+	flash being discontinued began learning html5 JS
+	working through all resources I can find
+2-Education
+	freecodecamp- html js css jquery bootstrap angular
+	udacity- mobel web design and responsive web apps
+	packtpub- books on javascript nodeJS unit/end to end testing bootstrap Jquery
+3-Technologies
+	bootstrap jquery nodejs express responsive design service worker databases angular
+4-Projects
+	actionscript game
+	js calculator code pen
+	git hub
+	udacity site
+5-Goals
+	career in programming
+	continued learning
+	mastering MEAN stack and developing full web apps
+6-Contact
+	email
+	phone
+	git
+	linked in(?)
+	resume link(?)
