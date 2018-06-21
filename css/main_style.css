@@ -1,7 +1,6 @@
 
-
 @media screen and (max-width:600px){
-	body{width:400px}
+	.container{width:400px}
 	
 	#content1, #content2{
 		width:45%;}
@@ -16,7 +15,7 @@
 }
 
 @media screen and (min-width:601px){
-	body{width:600px}
+	.container{width:601px}
 	
 	#content1, #content2{
 		width:48%;}
@@ -30,19 +29,30 @@
 
 
 @media screen and (min-width:900px){
-	body{width:900px}
+	.container{
+		width:900px;
+		margin: 0px;
+		padding: 0px;
+	}
 	
 	#content1, #content2, #content3{
-		width:30%;
+		width:32.8%;
+		margin: 0px;
+		padding: 0px;
 		}
 		
 	#content4, #content5, #content6{
-		width:30%;
+		width:32.8%;
+		margin: 0px;
+		padding: 0px;
 		}
 	.content-box{
-		height:300px;}
+		height:300px;
+		margin: 0px;
+		padding: 0px;}
 }
-body{
+
+.container{
 		display: flex;
 		flex-wrap: wrap;
 		margin-left:auto;
@@ -55,7 +65,28 @@ body{
 	
 .content-box{
 	border-style: solid;
-	padding:0px;
+	border-width: 2px;
+	margin: 0;
+	padding: 0px;
+}
+
+.ClickedBox{
+	width: calc(100% - 30px) !important;
+	height: 600px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	color: red;
+	
+}
+
+html{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
 }
 
 a{
