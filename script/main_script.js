@@ -1,11 +1,18 @@
 
 var allboxes= document.querySelectorAll(".content-box");
 allboxes.forEach(elem => {elem.addEventListener("click", boxClicked, false)});
+allboxes.forEach(elem => {elem.addEventListener("mouseover", mouseOver, false)});
+allboxes.forEach(elem => {elem.addEventListener("mouseout", mouseOut, false)});
 
 const boxIds= ["content1", "content2", "content3", "content4", "content5", "content6"]
 
 function boxClicked(e){
-	changeBox(e.target.id)
+	if(e.target.nodeName == "DIV")
+		changeBox(e.target.id)
+	else{
+		var newTarget = e.target.parentNode
+		changeBox(newTarget.id)
+	}
 }
 
 function changeBox(boxId){
@@ -18,7 +25,7 @@ function changeBox(boxId){
 	});
 	//Modify class of clicked box to expand
 	let selectedBox = document.getElementById(boxId);
-	if(selectedBox.className == "content-box"){
+	if(selectedBox.className == "content-box hover"){
 			selectedBox.className += " clicked-box"
 			closeButton(selectedBox);
 		}
@@ -42,4 +49,26 @@ function closeButton(){
 	closeButt.className = "close-button";
 	closeButt.onclick = resetBoxes;
 	document.querySelector(".container").appendChild(closeButt);
+}
+
+function mouseOver(e){
+	var newTarget;
+	if (e.target.nodeName == "DIV"){
+		newTarget = e.target;
+	}
+	else {
+		newTarget = e.target.parentNode
+	}
+		let selectedBox = document.getElementById(newTarget.id);
+		if(selectedBox.className == "content-box")
+			selectedBox.className += " hover";
+
+}
+
+function mouseOut(e){
+	if (e.target.nodeName == "DIV"){
+		let selectedBox = document.getElementById(e.target.id);
+		if(selectedBox.className == "content-box hover")
+			selectedBox.className = "content-box"
+		}
 }

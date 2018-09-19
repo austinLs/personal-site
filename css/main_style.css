@@ -1,22 +1,22 @@
 
 @media screen and (max-width:600px){
 	.container{width:400px}
-	
+
 	#content1, #content2{
 		width:45%;}
 	#content3, #content4{
 		width:45%;}
 	#content5, #content6{
 		width:45%;}
-		
+
 	.content-box{
 		height:150px;}
-	
+
 }
 
 @media screen and (min-width:601px){
 	.container{width:601px}
-	
+
 	#content1, #content2{
 		width:48%;}
 	#content3, #content4{
@@ -34,22 +34,28 @@
 		margin: 0px;
 		padding: 0px;
 	}
-	
+
 	#content1, #content2, #content3{
-		width:32.8%;
-		margin: 0px;
-		padding: 0px;
+		width: 32%;
+		width: calc((900px - 30px) / 3);
 		}
-		
+
 	#content4, #content5, #content6{
-		width:32.8%;
-		margin: 0px;
-		padding: 0px;
+		width: 32%;
+		width: calc((900px - 30px) / 3);
 		}
 	.content-box{
-		height:300px;
-		margin: 0px;
-		padding: 0px;}
+		height:300px;}
+}
+
+body{
+	background-color: #F8F8FF
+}
+
+h1{
+	background: none;
+	text-align: center;
+	user-select: none;
 }
 
 .container{
@@ -63,12 +69,17 @@
 		padding:0px;
 	}
 
-	
+
 .content-box{
-	border-style: solid;
-	border-width: 2px;
-	margin: 0;
+	box-shadow: 1px 1px 1px;
+	margin: 5px;
 	padding: 0px;
+	background-color: #FFF;
+}
+
+.hover{
+	transform: translate(-1px,-1px);
+	box-shadow: 2px 2px 4px;
 }
 
 .clicked-box{
@@ -76,18 +87,20 @@
 	height: 600px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
-	color: red;
+	border: 1px solid;
+	box-shadow: 4px 2px 8px;
+	border-color: #310C10;
 }
 
 .close-button{
 	position: absolute;
-	top:0;
-	right:13px;
+	top: 6px;
+	right:17px;
 	font-weight: bold;
+	font-size: 18px;
 	background-color: transparent;
 	border: none;
 	color: red;
-	on:
 }
 .close-button:hover{
 	background-color:black
