@@ -8,10 +8,10 @@ const boxIds= ["content1", "content2", "content3", "content4", "content5", "cont
 
 function boxClicked(e){
 	if(e.target.nodeName == "DIV")
-		changeBox(e.target.id)
+		changeBox(e.target.id);
 	else{
-		var newTarget = e.target.parentNode
-		changeBox(newTarget.id)
+		var newTarget = e.target.parentNode;
+		changeBox(newTarget.id);
 	}
 }
 
@@ -26,7 +26,7 @@ function changeBox(boxId){
 	//Modify class of clicked box to expand
 	let selectedBox = document.getElementById(boxId);
 	if(selectedBox.className == "content-box hover"){
-			selectedBox.className += " clicked-box"
+			selectedBox.className += " clicked-box";
 			closeButton(selectedBox);
 		}
 }
@@ -57,11 +57,12 @@ function mouseOver(e){
 		newTarget = e.target;
 	}
 	else {
-		newTarget = e.target.parentNode
+		newTarget = e.target.parentNode;
 	}
 		let selectedBox = document.getElementById(newTarget.id);
-		if(selectedBox.className == "content-box")
+		if(selectedBox.className == "content-box"){
 			selectedBox.className += " hover";
+		}
 
 }
 
