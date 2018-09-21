@@ -71,11 +71,17 @@ function mouseOver(e){
 }
 
 function mouseOut(e){
+	var newTarget;
 	if (e.target.nodeName == "DIV"){
-		let selectedBox = document.getElementById(e.target.id);
+		newTarget = e.target;
+	}
+	else {
+		newTarget = e.target.parentNode;
+	}
+		let selectedBox = document.getElementById(newTarget.id);
 		if(selectedBox.className == "content-box hover")
 			selectedBox.className = "content-box"
-		}
+
 }
 
 function addTextContent(boxId){

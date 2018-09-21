@@ -1,18 +1,25 @@
 
 @media screen and (max-width:600px){
-	.container{width:400px}
+	.container{
+		width:400px
+	}
 
 	#content1, #content2{
-		width:45%;}
+		width:45%;
+	}
+
 	#content3, #content4{
-		width:45%;}
+		width:45%;
+	}
+
 	#content5, #content6{
-		width:45%;}
+		width:45%;
+	}
 
 	.content-box{
 		height:150px;
 		padding-top: 40px !important;
-		}
+	}
 
 		.container{
 			margin-top: 30% !important;
@@ -20,16 +27,29 @@
 }
 
 @media screen and (min-width:601px){
-	.container{width:601px}
+	.container{
+		width:601px
+	}
 
 	#content1, #content2{
-		width:48%;}
+		width:48%;
+	}
+
 	#content3, #content4{
-		width:48%;}
+		width:48%;
+	}
+
 	#content5, #content6{
-		width:48%;}
+		width:48%;
+	}
+
 	.content-box{
-		height:200px;}
+		height:200px;
+	}
+
+	h1{
+		padding-top: 40px;
+	}
 }
 
 
@@ -43,14 +63,20 @@
 	#content1, #content2, #content3{
 		width: 32%;
 		width: calc((900px - 30px) / 3);
-		}
+	}
 
 	#content4, #content5, #content6{
 		width: 32%;
 		width: calc((900px - 30px) / 3);
-		}
+	}
+
 	.content-box{
-		height:300px;}
+		height:335px;
+	}
+
+	h1{
+		padding-top: 105px;
+	}
 }
 
 html{
@@ -60,16 +86,19 @@ html{
 }
 
 body{
-	background-image: linear-gradient(to bottom right, #F3F8FF, white, #F1F8FF);
+	background-image: linear-gradient(to bottom right, #f3f8ff, #efefef, #f3f8FF);
 	height: 90%;
 	background-repeat: no-repeat;
   background-attachment: fixed;
+	margin: 0px;
+	padding: 0px;
 }
 
 h1{
 	background: none;
 	text-align: center;
 	user-select: none;
+	margin: 30px;
 }
 
 p{
@@ -89,15 +118,15 @@ p{
 
 
 .content-box{
-	box-shadow: 1px 1px 1px;
+	box-shadow: 2px 2px 2px  #3d4447;
 	margin: 5px;
 	padding: 0px;
-	background-color: #FFF;
+	background-color: white;
 }
 
 .hover{
 	transform: translate(-1px,-1px);
-	box-shadow: 2px 2px 4px;
+	box-shadow: 4px 3px 4px #3d4447;
 }
 
 .clicked-box{
@@ -121,17 +150,31 @@ p{
 	color: red;
 }
 .close-button:hover{
-	background-color:black
-};
-
-html{
-	margin: 0px;
-	padding: 0px;
+	background-color:black;
 }
 
-body{
-	margin: 0px;
-	padding: 0px;
+#content1{
+	background-color: ;
+}
+
+#content2{
+	background-color: ;
+}
+
+#content3{
+	background-color: ;
+}
+
+#content4{
+	background-color: ;
+}
+
+#content5{
+	background-color: ;
+}
+
+#content6{
+	background-color: ;
 }
 
 a{
