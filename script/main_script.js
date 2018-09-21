@@ -7,8 +7,10 @@ allboxes.forEach(elem => {elem.addEventListener("mouseout", mouseOut, false)});
 const boxIds= ["content1", "content2", "content3", "content4", "content5", "content6"]
 
 function boxClicked(e){
+	// if box is clicked
 	if(e.target.nodeName == "DIV")
 		changeBox(e.target.id);
+	// if text is clicked get parent
 	else{
 		var newTarget = e.target.parentNode;
 		changeBox(newTarget.id);
@@ -29,6 +31,7 @@ function changeBox(boxId){
 			selectedBox.className += " clicked-box";
 			closeButton(selectedBox);
 		}
+		addTextContent(boxId);
 }
 
 function resetBoxes(){
@@ -39,8 +42,10 @@ function resetBoxes(){
 			document.getElementById(Id).className ="content-box";
 	});
 	const closeButt = document.querySelector(".close-button")
-	if(closeButt)
+	if(closeButt){
 		document.querySelector(".container").removeChild(closeButt);
+	}
+	document.getElementById("text-content").innerText = "	"
 }
 
 function closeButton(){
@@ -63,7 +68,6 @@ function mouseOver(e){
 		if(selectedBox.className == "content-box"){
 			selectedBox.className += " hover";
 		}
-
 }
 
 function mouseOut(e){
@@ -71,5 +75,36 @@ function mouseOut(e){
 		let selectedBox = document.getElementById(e.target.id);
 		if(selectedBox.className == "content-box hover")
 			selectedBox.className = "content-box"
+		}
+}
+
+function addTextContent(boxId){
+	let textContent;
+	if (document.getElementById("text-content") == undefined){
+		textContent = document.createElement("p");
+		textContent.id = "text-content";}
+	else {
+		textContent = document.getElementById("text-content");
+	}
+	document.getElementById(boxId).appendChild(textContent);
+	textContent.innerText = assembleText(boxId);
+
+}
+
+function assembleText(boxId){
+	switch (boxId){
+		case "content1":
+			return "Personal placeholder";
+		case "content2":
+			return "Education placeholder";
+		case "content3":
+			return "Technologies placeholder";
+		case "content4":
+			return "Projects placeholder"
+		case "content5":
+			return "Goals placeholder";
+		case "content6":
+			return "Email: austinvdschultz@gmail.com"
+			break;
 		}
 }
