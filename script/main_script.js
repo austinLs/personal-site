@@ -10,7 +10,7 @@ function boxClicked(e){
 	// if box is clicked
 	if(e.target.nodeName == "DIV")
 		changeBox(e.target.id);
-	// if text is clicked get parent
+	// if child is clicked get parent
 	else{
 		var newTarget = e.target.parentNode;
 		changeBox(newTarget.id);
@@ -27,25 +27,45 @@ function changeBox(boxId){
 	});
 	//Modify class of clicked box to expand
 	let selectedBox = document.getElementById(boxId);
+	//Prevent duplicate class
 	if(selectedBox.className == "content-box hover"){
 			selectedBox.className += " clicked-box";
 			closeButton(selectedBox);
 		}
+		//Slice id to get matching border and hide
+		toggleBorder("hidden");
+		toggleHeading("10px");
 		addTextContent(boxId);
 }
 
 function resetBoxes(){
 	boxIds.forEach(Id=> {
 		// Reset all boxes
-			document.getElementById(Id).style.visibility ="visible";
-			document.getElementById(Id).style.position ="relative";
-			document.getElementById(Id).className ="content-box";
+			document.getElementById(Id).style.visibility = "visible";
+			document.getElementById(Id).style.position = "relative";
+			document.getElementById(Id).className = "content-box";
 	});
 	const closeButt = document.querySelector(".close-button")
 	if(closeButt){
 		document.querySelector(".container").removeChild(closeButt);
 	}
+	toggleBorder("visible");
+	toggleHeading("105px");
 	document.getElementById("text-content").innerText = "	"
+}
+
+function toggleBorder(status){
+	var images =document.getElementsByClassName("border")
+	for (var i=0; i< images.length; i++){
+		images[i].style.visibility = status;
+	}
+}
+
+function toggleHeading(padding){
+	var headings = document.getElementsByTagName("h1")
+	for (var i=0; i< headings.length; i++){
+		headings[i].style["padding-top"] = padding;
+	}
 }
 
 function closeButton(){
@@ -68,6 +88,7 @@ function mouseOver(e){
 		if(selectedBox.className == "content-box"){
 			selectedBox.className += " hover";
 		}
+		document.getElementById("border"+newTarget.id.slice(7)).style.transform +="rotate(90deg)"
 }
 
 function mouseOut(e){
@@ -79,9 +100,10 @@ function mouseOut(e){
 		newTarget = e.target.parentNode;
 	}
 		let selectedBox = document.getElementById(newTarget.id);
-		if(selectedBox.className == "content-box hover")
+		if(selectedBox.className == "content-box hover"){
 			selectedBox.className = "content-box"
-
+			}
+			document.getElementById("border"+newTarget.id.slice(7)).style.transform ="rotate(0deg)"
 }
 
 function addTextContent(boxId){
@@ -111,6 +133,5 @@ function assembleText(boxId){
 			return "Goals placeholder";
 		case "content6":
 			return "Email: austinvdschultz@gmail.com"
-			break;
 		}
 }
