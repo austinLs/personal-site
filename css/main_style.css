@@ -139,7 +139,7 @@ h1{
 }
 
 p{
-	padding: 10%;
+	padding: 0 10%;
 	line-height: 1.5em;
 }
 
@@ -176,6 +176,7 @@ p{
 	border: 1px solid;
 	box-shadow: 4px 2px 8px #3d4447;
 	border-color: #3d4447;
+	overflow: auto;
 }
 
 .close-button{

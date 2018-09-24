@@ -7,7 +7,7 @@ allboxes.forEach(elem => {elem.addEventListener("mouseout", mouseOut, false)});
 const boxIds= ["content1", "content2", "content3", "content4", "content5", "content6"]
 
 //Hide all content paragraphs
-toggleElements("p","visibility","hidden");
+toggleElements("p","display","none");
 
 function getMainDiv(e){
 	// if box is clicked
@@ -52,8 +52,8 @@ function resetBoxes(){
 		document.querySelector(".container").removeChild(closeButt);
 	}
 	toggleElements("img","visibility","visible");
-	toggleElements("h1","padding-top","105px");
-	toggleElements("p","visibility","hidden")
+	toggleElements("h1","padding-top","");
+	toggleElements("p","display","none")
 }
 
 function toggleElements(element, property, status){
@@ -90,5 +90,5 @@ function mouseOut(e){
 }
 
 function addTextContent(boxId){
-	document.getElementById("paragraph"+boxId.slice(7)).style.visibility="visible";
+	document.getElementById("paragraph"+boxId.slice(7)).style.display="";
 }
