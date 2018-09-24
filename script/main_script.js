@@ -1,41 +1,43 @@
 
 var allboxes= document.querySelectorAll(".content-box");
-allboxes.forEach(elem => {elem.addEventListener("click", boxClicked, false)});
+allboxes.forEach(elem => {elem.addEventListener("click", changeBox, false)});
 allboxes.forEach(elem => {elem.addEventListener("mouseover", mouseOver, false)});
 allboxes.forEach(elem => {elem.addEventListener("mouseout", mouseOut, false)});
 
 const boxIds= ["content1", "content2", "content3", "content4", "content5", "content6"]
 
-function boxClicked(e){
+//Hide all content paragraphs
+toggleElements("p","visibility","hidden");
+
+function getMainDiv(e){
 	// if box is clicked
 	if(e.target.nodeName == "DIV")
-		changeBox(e.target.id);
+		return e.target.id
 	// if child is clicked get parent
-	else{
-		var newTarget = e.target.parentNode;
-		changeBox(newTarget.id);
-	}
+	else
+		return e.target.parentNode.id;
 }
 
-function changeBox(boxId){
+function changeBox(e){
+	var newTarget = getMainDiv(e)
 	boxIds.forEach(Id=> {
 		// Hide all boxes that aren't clicked
-		if (Id != boxId){
+		if (Id != newTarget){
 			document.getElementById(Id).style.visibility ="hidden";
 			document.getElementById(Id).style.position ="absolute";
 		}
 	});
 	//Modify class of clicked box to expand
-	let selectedBox = document.getElementById(boxId);
+	let selectedBox = document.getElementById(newTarget);
 	//Prevent duplicate class
 	if(selectedBox.className == "content-box hover"){
 			selectedBox.className += " clicked-box";
 			closeButton(selectedBox);
 		}
 		//Slice id to get matching border and hide
-		toggleBorder("hidden");
-		toggleHeading("10px");
-		addTextContent(boxId);
+		toggleElements("img","visibility","hidden");
+		toggleElements("h1","padding-top","10px");
+		addTextContent(newTarget);
 }
 
 function resetBoxes(){
@@ -49,22 +51,15 @@ function resetBoxes(){
 	if(closeButt){
 		document.querySelector(".container").removeChild(closeButt);
 	}
-	toggleBorder("visible");
-	toggleHeading("105px");
-	document.getElementById("text-content").innerText = "	"
+	toggleElements("img","visibility","visible");
+	toggleElements("h1","padding-top","105px");
+	toggleElements("p","visibility","hidden")
 }
 
-function toggleBorder(status){
-	var images =document.getElementsByClassName("border")
-	for (var i=0; i< images.length; i++){
-		images[i].style.visibility = status;
-	}
-}
-
-function toggleHeading(padding){
-	var headings = document.getElementsByTagName("h1")
-	for (var i=0; i< headings.length; i++){
-		headings[i].style["padding-top"] = padding;
+function toggleElements(element, property, status){
+	var elements =document.getElementsByTagName(element)
+	for (var i=0; i< elements.length; i++){
+		elements[i].style[property] = status;
 	}
 }
 
@@ -77,61 +72,23 @@ function closeButton(){
 }
 
 function mouseOver(e){
-	var newTarget;
-	if (e.target.nodeName == "DIV"){
-		newTarget = e.target;
-	}
-	else {
-		newTarget = e.target.parentNode;
-	}
-		let selectedBox = document.getElementById(newTarget.id);
+	var newTarget = getMainDiv(e)
+		let selectedBox = document.getElementById(newTarget);
 		if(selectedBox.className == "content-box"){
 			selectedBox.className += " hover";
 		}
-		document.getElementById("border"+newTarget.id.slice(7)).style.transform +="rotate(90deg)"
+		document.getElementById("border"+newTarget.slice(7)).style.transform +="rotate(90deg)"
 }
 
 function mouseOut(e){
-	var newTarget;
-	if (e.target.nodeName == "DIV"){
-		newTarget = e.target;
-	}
-	else {
-		newTarget = e.target.parentNode;
-	}
-		let selectedBox = document.getElementById(newTarget.id);
+	var newTarget = getMainDiv(e)
+		let selectedBox = document.getElementById(newTarget);
 		if(selectedBox.className == "content-box hover"){
 			selectedBox.className = "content-box"
 			}
-			document.getElementById("border"+newTarget.id.slice(7)).style.transform ="rotate(0deg)"
+			document.getElementById("border"+newTarget.slice(7)).style.transform ="rotate(0deg)"
 }
 
 function addTextContent(boxId){
-	let textContent;
-	if (document.getElementById("text-content") == undefined){
-		textContent = document.createElement("p");
-		textContent.id = "text-content";}
-	else {
-		textContent = document.getElementById("text-content");
-	}
-	document.getElementById(boxId).appendChild(textContent);
-	textContent.innerText = assembleText(boxId);
-
-}
-
-function assembleText(boxId){
-	switch (boxId){
-		case "content1":
-			return "Personal placeholder";
-		case "content2":
-			return "Education placeholder";
-		case "content3":
-			return "Technologies placeholder";
-		case "content4":
-			return "Projects placeholder"
-		case "content5":
-			return "Goals placeholder";
-		case "content6":
-			return "Email: austinvdschultz@gmail.com"
-		}
+	document.getElementById("paragraph"+boxId.slice(7)).style.visibility="visible";
 }
