@@ -35,7 +35,7 @@
 	}
 
 	h1{
-		font-size: 24px;
+		font-size: 20px;
 	}
 
 	img{
@@ -124,6 +124,7 @@ html{
 body{
 	background-image: linear-gradient(to bottom right, #f3f8ff, #efefef, #f3f8FF);
 	height: 90%;
+	width: 100%;
 	background-repeat: no-repeat;
   background-attachment: fixed;
 	margin: 0px;
