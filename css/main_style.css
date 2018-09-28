@@ -1,7 +1,7 @@
 
 @media screen and (max-width:600px){
 	.container{
-		width:400px
+		width:380px;
 	}
 
 	#content1, #content2{
@@ -21,26 +21,26 @@
 		padding-top: 40px !important;
 	}
 
-		.container{
-			margin-top: 30% !important;
-		}
+	.container{
+		margin-top: 8% !important;
+	}
 
-		#border1, #border2, #border3{
-			top: -75px;
-			left: -60px;
-		}
-		#border4, #border5, #border6{
-			top: -75px;
-			left: -60px;
-		}
+	#border1, #border2, #border3{
+		top: -75px;
+		left: -60px;
+	}
+	#border4, #border5, #border6{
+		top: -75px;
+		left: -60px;
+	}
 
-		h1{
-			font-size: 24px;
-		}
+	h1{
+		font-size: 24px;
+	}
 
-		img{
-			transform: scale(.6) !important;
-		}
+	img{
+		transform: scale(.6) !important;
+	}
 }
 
 @media screen and (min-width:601px) and (max-width:899px){
